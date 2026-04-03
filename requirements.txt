@@ -1,0 +1,9 @@
+ultralytics
+opencv-python
+numpy
+python-osc
+websockets
+vamp
+chord-extractor
+demucs
+librosa

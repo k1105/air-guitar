@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Guitar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="screen-prep">
+
+  <!-- ========== PREP SCREEN ========== -->
+  <div id="prep-screen" class="screen">
+    <header class="prep-header">
+      <h1>Air Guitar</h1>
+    </header>
+
+    <div class="prep-content">
+      <!-- 新規曲アップロード -->
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">+</div>
+        <div class="upload-text">音源ファイルをドロップ<br>またはクリックして選択</div>
+        <div class="upload-sub">.mp3, .wav</div>
+        <input type="file" id="audioUpload" accept="audio/*" hidden>
+      </div>
+
+      <!-- 処理中 -->
+      <div class="prep-progress" id="prepProgress" hidden>
+        <div class="progress-label" id="progressLabel">準備中...</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- 準備済み曲一覧 -->
+      <div class="song-list" id="songList">
+        <h2>Songs</h2>
+        <div class="songs" id="songs"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PERFORM SCREEN ========== -->
+  <div id="perform-screen" class="screen">
+    <header class="perform-header">
+      <button id="backBtn" class="btn-back">Back</button>
+      <span class="song-title" id="songTitle">--</span>
+      <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+      <div class="perform-controls">
+        <label class="track-toggle">
+          <input type="checkbox" id="backingToggle" checked>
+          <span>Backing</span>
+        </label>
+        <button id="playBtn" class="btn-play">Play</button>
+      </div>
+    </header>
+
+    <div class="perform-main">
+      <canvas id="skeleton"></canvas>
+
+      <div id="cueOverlay">
+        <div id="currentChord" class="current-chord">--</div>
+        <div id="cueLabels"></div>
+        <div id="pitchIndicator" class="pitch-indicator">PITCH: MID</div>
+      </div>
+
+      <div class="history-panel" id="historyPanel">
+        <ul id="historyList"></ul>
+      </div>
+    </div>
+
+    <div class="chord-timeline" id="timeline"></div>
+
+    <div class="status-bar">
+      <span id="wsStatus">Disconnected</span>
+      <span id="bpmDisplay"></span>
+      <span>OSC: 127.0.0.1:8000</span>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tone@14/build/Tone.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
