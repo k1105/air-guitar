@@ -8,3 +8,4 @@ yolo11n-pose.pt
 songs/*/stems/
 songs/*/backing.mp3
 songs/*/original.*
+/songs/*
