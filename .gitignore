@@ -5,7 +5,4 @@ __pycache__/
 yolo11n-pose.pt
 
 # 曲データ（大きいので個別管理）
-songs/*/stems/
-songs/*/backing.mp3
-songs/*/original.*
-/songs/*
+songs/*
